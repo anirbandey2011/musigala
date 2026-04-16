@@ -4,14 +4,71 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Music Website</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; }
+        header { background: #333; color: #fff; padding: 10px; text-align: center; }
+        nav { margin: 10px; }
+        nav a { margin: 10px; text-decoration: none; color: #333; }
+        section { padding: 20px; display: none; }
+        .active { display: block; }
+    </style>
 </head>
 <body>
-    <h1>Welcome to My Music Website</h1>
-    <h2>YouTube Video</h2>
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/bDtjO-R0QSo" frameborder="0" allowfullscreen></iframe>
-    <h2>YouTube Playlist</h2>
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/videoseries?list=PLzMiNMX5U5tZLRdlwoOFjU0BySP2McFZV" frameborder="0" allowfullscreen></iframe>
-    <h2>Spotify Playlist</h2>
-    <iframe src="https://open.spotify.com/embed/playlist/0i2S0eEdftTrmLKueMWUKX" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+    <header>
+        <h1>Welcome to My Music Website</h1>
+        <nav>
+            <a href="#home" onclick="showSection('home')">Home</a>
+            <a href="#music" onclick="showSection('music')">Music</a>
+            <a href="#spotify" onclick="showSection('spotify')">Spotify</a>
+            <a href="#youtube" onclick="showSection('youtube')">YouTube</a>
+            <a href="#about" onclick="showSection('about')">About</a>
+            <a href="#contact" onclick="showSection('contact')">Contact</a>
+        </nav>
+    </header>
+
+    <section id="home" class="active">
+        <h2>Home</h2>
+        <p>Welcome to our music website!</p>
+    </section>
+
+    <section id="music">
+        <h2>Music</h2>
+        <p>Here is our collection of music.</p>
+    </section>
+
+    <section id="spotify">
+        <h2>Spotify</h2>
+        <p>Listen to our playlist on Spotify.</p>
+    </section>
+
+    <section id="youtube">
+        <h2>YouTube</h2>
+        <p>Check out our videos on YouTube.</p>
+    </section>
+
+    <section id="about">
+        <h2>About</h2>
+        <p>Learn more about us.</p>
+    </section>
+
+    <section id="contact">
+        <h2>Contact</h2>
+        <p>Get in touch with us!</p>
+    </section>
+
+    <script>
+        function showSection(sectionId) {
+            const sections = document.querySelectorAll('section');
+            sections.forEach(section => {
+                section.classList.remove('active');
+            });
+            document.getElementById(sectionId).classList.add('active');
+        }
+
+        function playSong(songUrl) {
+            const audio = new Audio(songUrl);
+            audio.play();
+        }
+    </script>
 </body>
 </html>
